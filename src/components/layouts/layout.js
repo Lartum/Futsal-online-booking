@@ -1,10 +1,12 @@
 import Navbar from "./navbar";
-import Box from "@mui/material/Box";
+import { Container } from "@mui/system";
+import { ThemeProvider } from "@mui/material";
+import {theme} from "./theme";
 export default function Layout({ children }) {
   return (
     <>
       <Navbar />
-      <main>{children}</main>
+        <main>{children}</main>
     </>
   );
 }

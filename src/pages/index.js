@@ -1,3 +1,5 @@
+import { Button, Typography } from "@mui/material";
+import { Box, Container } from "@mui/system";
 import Head from "next/head";
 export default function Home() {
   return (
@@ -8,7 +10,23 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>Hello world</main>
+      <main>
+        <Container>
+          <Box sx={{ marginTop: 3 }}>
+            <Typography variant="h1">
+              Welcome to Futsal Online Booking
+            </Typography>
+            <Box sx={{ display: "flex", gap:2 }}>
+              <Button variant="outlined" size="large" href="/login">
+                Login
+              </Button>
+              <Button variant="outlined" size="large" href="/register">
+                Register
+              </Button>
+            </Box>
+          </Box>
+        </Container>
+      </main>
     </>
   );
 }
