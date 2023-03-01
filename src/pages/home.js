@@ -1,26 +1,24 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import {Button} from '@mui/material'
-import { useAuth } from '@/components/auth/authUserProvider';
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { Button } from "@mui/material";
+import { useAuthContext } from "@/components/auth/AuthContext";
+import logOut from "@/utils/firebase/auth/logout";
 
 const Home = () => {
-  const { authUser, loading, signOut } = useAuth();
+  const { user } = useAuthContext();
   const router = useRouter();
 
   // Listen for changes on loading and authUser, redirect if needed
   useEffect(() => {
-    console.log(authUser);
-    if (!loading && !authUser)
-      router.push('/')
-  }, [authUser, loading])
-
+    if (user == null) router.push("/");
+  }, [user]);
   return (
     //Your logged in page
     <div>
-        Protected route
-        <Button onClick={signOut}>Sign Out</Button>
+      Protected
+      <Button onClick={logOut}>Sign Out</Button>
     </div>
-  )
-}
+  );
+};
 
 export default Home;

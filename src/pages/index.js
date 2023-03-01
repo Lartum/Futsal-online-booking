@@ -1,7 +1,10 @@
+import { useAuthContext } from "@/components/auth/AuthContext";
 import { Button, Typography } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import Head from "next/head";
 export default function Home() {
+  const { user } = useAuthContext();
+  console.log(user);
   return (
     <>
       <Head>
@@ -16,7 +19,7 @@ export default function Home() {
             <Typography variant="h1">
               Welcome to Futsal Online Booking
             </Typography>
-            <Box sx={{ display: "flex", gap:2 }}>
+            <Box sx={{ display: "flex", gap: 2 }}>
               <Button variant="outlined" size="large" href="/login">
                 Login
               </Button>
